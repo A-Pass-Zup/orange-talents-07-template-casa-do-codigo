@@ -1,7 +1,7 @@
-package br.com.zupacademy.apass.cadadocodigo.repository;
+package br.com.zupacademy.apass.casadocodigo.repository;
 
 
-import br.com.zupacademy.apass.cadadocodigo.modelo.Autor;
+import br.com.zupacademy.apass.casadocodigo.modelo.Autor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AutorRepository extends JpaRepository<Autor, Long> {

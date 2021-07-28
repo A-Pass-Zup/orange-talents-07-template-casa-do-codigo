@@ -1,35 +1,35 @@
-package br.com.zupacademy.apass.cadadocodigo.dto.request;
+package br.com.zupacademy.apass.casadocodigo.dto.request;
 
-import br.com.zupacademy.apass.cadadocodigo.modelo.Autor;
-import org.hibernate.validator.constraints.Length;
+import br.com.zupacademy.apass.casadocodigo.modelo.Autor;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 /**
  * Classe DTO que representa os dados de requisição para cadastro de Autor.
  */
 public class AutorRequestDto {
 
-    @NotEmpty
+    @NotBlank
     private String nome;
 
     @Email
-    @NotEmpty
+    @NotBlank
     private String email;
 
-    @NotEmpty
-    @Length(max = 400)
+    @NotBlank
+    @Size(max = 400)
     private String descricao;
 
     /**
-     * Construtor com os atributos obrigatórios.
+     * Construtor com os dados obrigatórios.
      *
      * @param nome
      * @param email
      * @param descricao
      */
-    public AutorRequestDto(String nome, String email, String descricao) {
+    public AutorRequestDto(@NotBlank String nome, @NotBlank @Email String email, @NotBlank String descricao) {
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
