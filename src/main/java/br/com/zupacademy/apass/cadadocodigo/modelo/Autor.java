@@ -1,13 +1,9 @@
 package br.com.zupacademy.apass.cadadocodigo.modelo;
 
-import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,7 +21,7 @@ public class Autor {
     private String email;
 
     @NotBlank
-    @Length(max = 400)
+    @Size(max = 400)
     private String descricao;
 
     @NotNull
