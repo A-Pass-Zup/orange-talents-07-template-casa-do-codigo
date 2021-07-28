@@ -5,14 +5,17 @@ import br.com.zupacademy.apass.cadadocodigo.repository.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 
-@Controller()
+@Controller
 @RequestMapping("/api/v1/autor")
+@Validated
 public class AutorController {
 
     @Autowired
@@ -24,10 +27,8 @@ public class AutorController {
      */
     @PostMapping
     @Transactional
-    public ResponseEntity cadastra(@RequestBody @Valid AutorRequestDto autorReqDto) {
-        var autor = autorReqDto.converte();
-        autor.setDataHoraCriacao(LocalDateTime.now());
-        this.autorRepository.save(autor);
+    public ResponseEntity<?> cadastra(@RequestBody @Valid AutorRequestDto autorReqDto) {
+        this.autorRepository.save(autorReqDto.converte());
         return ResponseEntity.ok().build();
     }
 }
