@@ -36,6 +36,14 @@ public class AutorRequestDto {
     }
 
     /**
+     * Obtém o e-mail do novo autor do RequestDto.
+     * @return
+     */
+    public String getEmail() {
+        return this.email;
+    }
+
+    /**
      * Cria uma instância de {@link Autor} a partir dos dados da instância dessa classe.
      *
      * @return

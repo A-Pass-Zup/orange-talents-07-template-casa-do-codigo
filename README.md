@@ -1,3 +1,10 @@
-# Por favor faça um Fork desse projeto!
+# Desafio 'Casa do Código'
 
-## Está em dúvida de como fazer um Fork? Não tem problema! [Aqui tem uma explicação do que entendemos que você deve considerar!](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
+Implementação do desafio a 'Caso do Código' realizado durante o bootcamping na Zup Innovation.
+
+java, spring, api-rest
+
+## Etapas
+
+1. Criação de uma API para cadastrro de autores;
+2. Validação de e-mail do autor único;
