@@ -55,7 +55,7 @@ public class Autor {
         }
 
         if(descricao==null || descricao.trim().equals("") || descricao.trim().length() >= 400) {
-            throw new IllegalArgumentException("A descrição do autor não pode está vazia!");
+            throw new IllegalArgumentException("Não pode criar autor sem descrição!");
         }
 
         if(descricao.length() > 400) {

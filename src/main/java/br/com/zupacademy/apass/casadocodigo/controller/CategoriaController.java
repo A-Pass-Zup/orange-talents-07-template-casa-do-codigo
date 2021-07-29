@@ -2,7 +2,6 @@ package br.com.zupacademy.apass.casadocodigo.controller;
 
 import br.com.zupacademy.apass.casadocodigo.dto.request.CategoriaRequestDto;
 import br.com.zupacademy.apass.casadocodigo.repository.CategoriaRepository;
-import br.com.zupacademy.apass.casadocodigo.validator.CategoriaNomeUnicoValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -19,14 +18,6 @@ public class CategoriaController {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
-
-    @Autowired
-    private CategoriaNomeUnicoValidator categoriaNomeUnicoValidator;
-
-    @InitBinder
-    public void init(WebDataBinder binder) {
-        binder.addValidators(this.categoriaNomeUnicoValidator);
-    }
 
     @PostMapping
     @Transactional

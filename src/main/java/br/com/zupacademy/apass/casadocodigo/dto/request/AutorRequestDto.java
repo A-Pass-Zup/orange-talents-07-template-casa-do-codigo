@@ -1,6 +1,7 @@
 package br.com.zupacademy.apass.casadocodigo.dto.request;
 
 import br.com.zupacademy.apass.casadocodigo.modelo.Autor;
+import br.com.zupacademy.apass.casadocodigo.validation.constraints.UniqueValue;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -16,6 +17,7 @@ public class AutorRequestDto {
 
     @Email
     @NotBlank
+    @UniqueValue(domainClass = Autor.class, fieldName = "email")
     private String email;
 
     @NotBlank

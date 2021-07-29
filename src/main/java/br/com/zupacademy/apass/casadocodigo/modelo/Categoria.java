@@ -25,6 +25,10 @@ public class Categoria {
      * @param nome
      */
     public Categoria(@NotBlank String nome) {
+        if(nome == null || nome.trim().equals("")) {
+            throw new IllegalArgumentException("Não pode criar uma categoria sem nome!");
+        }
+
         this.nome = nome;
     }
 
