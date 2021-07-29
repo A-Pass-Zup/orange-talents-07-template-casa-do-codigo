@@ -37,6 +37,10 @@ public class Autor {
     @NotNull
     private LocalDateTime dataHoraCriacao = LocalDateTime.now();
 
+    @Deprecated
+    public Autor() {
+    }
+
     /**
      * Contrutor com dados obrigatórios para autor.
      * @param nome
