@@ -1,6 +1,5 @@
 package br.com.zupacademy.apass.casadocodigo.repository;
 
-import br.com.zupacademy.apass.casadocodigo.dto.request.CategoriaRequestDto;
 import br.com.zupacademy.apass.casadocodigo.modelo.Categoria;
 import org.springframework.data.jpa.repository.JpaRepository;
 

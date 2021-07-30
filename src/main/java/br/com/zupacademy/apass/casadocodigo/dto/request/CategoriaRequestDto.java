@@ -2,8 +2,6 @@ package br.com.zupacademy.apass.casadocodigo.dto.request;
 
 import br.com.zupacademy.apass.casadocodigo.modelo.Categoria;
 import br.com.zupacademy.apass.casadocodigo.validation.constraints.UniqueValue;
-import com.fasterxml.jackson.annotation.JacksonAnnotation;
-import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotBlank;
