@@ -48,11 +48,11 @@ public class LivroRequestDto {
     private LocalDate dataPublicacao;
 
     @NotNull
-    @ExistsId(domainClass = Autor.class)
+    @ExistsId(domainClass = Autor.class, fieldId = "id")
     private Long autor;
 
     @NotNull
-    @ExistsId(domainClass = Categoria.class)
+    @ExistsId(domainClass = Categoria.class, fieldId = "id")
     private Long categoria;
 
     public LivroRequestDto(
