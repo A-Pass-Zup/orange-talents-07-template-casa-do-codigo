@@ -105,4 +105,20 @@ public class Livro {
         this.autor = autor;
         this.categoria = categoria;
     }
+
+    /**
+     * Obtém o id do livro.
+     * @return
+     */
+    public Long getId() {
+        return this.id;
+    }
+
+    /**
+     * Obtém o título/nome do livro.
+     * @return
+     */
+    public String getTitulo() {
+        return this.titulo;
+    }
 }
