@@ -1,6 +1,7 @@
 package br.com.zupacademy.apass.casadocodigo.controller;
 
 import br.com.zupacademy.apass.casadocodigo.dto.request.LivroRequestDto;
+import br.com.zupacademy.apass.casadocodigo.dto.response.LivroDetalhesResponseDto;
 import br.com.zupacademy.apass.casadocodigo.dto.response.LivroItemListaResponsoDto;
 import br.com.zupacademy.apass.casadocodigo.repository.AutorRepository;
 import br.com.zupacademy.apass.casadocodigo.repository.CategoriaRepository;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 import javax.validation.Valid;
 
@@ -25,6 +27,16 @@ public class LivroController {
 
     @Autowired
     private AutorRepository autorRepository;
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LivroDetalhesResponseDto> detalhes (@PathVariable Long id) {
+         var livroPesquisa = this.livroRepository.findById(id);
+         if(livroPesquisa.isEmpty()) {
+             return ResponseEntity.notFound().build();
+         }
+
+         return ResponseEntity.ok(new LivroDetalhesResponseDto(livroPesquisa.get()));
+    }
 
     @GetMapping
     public ResponseEntity<?> lista(@PageableDefault Pageable page) {

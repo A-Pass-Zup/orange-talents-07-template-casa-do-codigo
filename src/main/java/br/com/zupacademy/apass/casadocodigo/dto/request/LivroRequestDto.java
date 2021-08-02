@@ -14,6 +14,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class LivroRequestDto {
@@ -26,11 +27,12 @@ public class LivroRequestDto {
     @Size(max = 500)
     private String resumo;
 
+    @NotBlank
     private String sumario;
 
     @NotNull
     @Min(20)
-    private Double preco;
+    private BigDecimal preco;
 
     @NotNull
     @Min(100)
@@ -54,12 +56,18 @@ public class LivroRequestDto {
     private Long categoria;
 
     public LivroRequestDto(
-            @NotBlank String titulo, @NotBlank String resumo, @NotNull Double preco,
-            @NotNull Integer numeroDePaginas, @NotBlank String isbn,
+            @NotBlank String titulo,
+            @NotBlank @Size(max = 500) String resumo,
+            @NotBlank String sumario,
+            @NotNull @Min(20) BigDecimal preco,
+            @NotNull @Min(100) Integer numeroDePaginas,
+            @NotBlank String isbn,
             @NotNull @JsonFormat(pattern = "dd/MM/yyyy") LocalDate dataPublicacao,
-            @NotNull Long autor, @NotNull Long categoria) {
+            @NotNull Long autor,
+            @NotNull Long categoria) {
         this.titulo = titulo;
         this.resumo = resumo;
+        this.sumario = sumario;
         this.preco = preco;
         this.numeroDePaginas = numeroDePaginas;
         this.isbn = isbn;
@@ -71,6 +79,7 @@ public class LivroRequestDto {
     public Livro converte(AutorRepository autorRepository, CategoriaRepository categoriaRepository) {
         return new Livro(this.titulo,
                 this.resumo,
+                this.sumario,
                 this.preco,
                 this.numeroDePaginas,
                 this.isbn,
