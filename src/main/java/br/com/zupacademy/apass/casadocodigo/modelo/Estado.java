@@ -44,4 +44,8 @@ public class Estado {
         this.nome = nome.trim();
         this.pais = pais;
     }
+
+    public Pais getPais() {
+        return pais;
+    }
 }
